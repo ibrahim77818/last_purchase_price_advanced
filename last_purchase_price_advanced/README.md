@@ -1,4 +1,4 @@
-# Last Purchase Price Advanced (Odoo 16 Community & Enterprise)
+# Last Purchase Price Advanced (Odoo 17 Community & Enterprise)
 
 Price intelligence for purchasing: every PO line shows the last confirmed
 purchase price, normalized to the line's unit of measure and currency, with a

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Last Purchase Price Advanced',
-    'version': '16.0.1.0.0',
+    'version': '17.0.1.0.0',
     'category': 'Inventory/Purchase',
     'summary': 'Last purchase price on PO lines with UoM / multi-currency '
                'normalization, variance signals and a Vendor Price Stability '

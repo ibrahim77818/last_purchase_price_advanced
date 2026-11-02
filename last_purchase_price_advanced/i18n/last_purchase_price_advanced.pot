@@ -73,11 +73,6 @@ msgid "<i class=\"fa fa-caret-up\" role=\"img\" aria-label=\"Price Up\" title=\"
 msgstr ""
 
 #. module: last_purchase_price_advanced
-#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.res_config_settings_view_form_lpp
-msgid "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
-msgstr ""
-
-#. module: last_purchase_price_advanced
 #: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
 msgid ""
 "<span class=\"lpp_sep\">|</span>\n"
@@ -94,13 +89,6 @@ msgstr ""
 #. module: last_purchase_price_advanced
 #: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.res_config_settings_view_form_lpp
 msgid "<span class=\"ms-1\">%</span>"
-msgstr ""
-
-#. module: last_purchase_price_advanced
-#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.res_config_settings_view_form_lpp
-msgid ""
-"<span class=\"o_form_label\">Vendor Price Stability</span>\n"
-"                            <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
 msgstr ""
 
 #. module: last_purchase_price_advanced
@@ -1015,6 +1003,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:last_purchase_price_advanced.action_lpp_vendor_price_report
 #: model:ir.ui.menu,name:last_purchase_price_advanced.menu_lpp_vendor_price_stability
 #: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_form_lpp
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.res_config_settings_view_form_lpp
 #: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_stability_wizard_view_form
 #, python-format
 msgid "Vendor Price Stability"

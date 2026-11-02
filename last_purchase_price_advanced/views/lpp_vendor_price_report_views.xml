@@ -58,7 +58,7 @@
                        decoration-muted="trend == 'first'"/>
                 <field name="qty" sum="Total" optional="show"/>
                 <field name="amount" sum="Total" optional="show"/>
-                <field name="currency_id" invisible="1"/>
+                <field name="currency_id" column_invisible="1"/>
             </tree>
         </field>
     </record>
