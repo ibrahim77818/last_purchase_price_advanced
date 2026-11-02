@@ -33,6 +33,9 @@ class TestVendorPriceReport(LppCommon):
                                    ('product_id', '=', self.product.id)], order='date, id')
 
     def _rows(self, **wizard_vals):
+        # Scope to the test category: demo databases (Odoo 17 loads demo
+        # purchase orders by default) must not leak into the assertions.
+        wizard_vals.setdefault('categ_ids', [(6, 0, self.categ.ids)])
         wizard = self.env['lpp.stability.wizard'].create(wizard_vals)
         return wizard, {(r['partner'], r['product']): r for r in wizard._get_stability_rows()}
 
@@ -112,7 +115,8 @@ class TestVendorPriceReport(LppCommon):
             self.company.write({'lpp_stable_cv': 20.0, 'lpp_volatile_cv': 5.0})
 
     def test_07_excel_export(self):
-        wizard = self.env['lpp.stability.wizard'].create({})
+        wizard = self.env['lpp.stability.wizard'].create({
+            'categ_ids': [(6, 0, self.categ.ids)]})
         action = wizard.action_export_xlsx()
         self.assertEqual(action['type'], 'ir.actions.act_url')
         content = base64.b64decode(wizard.excel_file)

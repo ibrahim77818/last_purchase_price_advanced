@@ -10,7 +10,7 @@
                 <button name="action_lpp_price_stability" type="object"
                         class="oe_stat_button" icon="fa-line-chart"
                         groups="purchase.group_purchase_user"
-                        attrs="{'invisible': [('purchase_ok', '=', False)]}">
+                        invisible="not purchase_ok">
                     <div class="o_stat_info">
                         <span class="o_stat_text">Price</span>
                         <span class="o_stat_text">Stability</span>

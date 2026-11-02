@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, tools
+from odoo.tools import SQL
 
 TRENDS = [
     ('first', 'First Purchase'),
@@ -33,23 +34,23 @@ class LppVendorPriceReport(models.Model):
     user_id = fields.Many2one('res.users', 'Buyer', readonly=True)
 
     order_price_unit = fields.Float('Order Unit Price', digits='Product Price',
-                                    readonly=True, group_operator='avg')
+                                    readonly=True, aggregator='avg')
     currency_rate = fields.Float('Currency Rate', digits=(16, 6),
-                                 readonly=True, group_operator='avg')
+                                 readonly=True, aggregator='avg')
     unit_price = fields.Float('Avg Unit Price', digits='Product Price',
-                              readonly=True, group_operator='avg')
+                              readonly=True, aggregator='avg')
     min_price = fields.Float('Min Unit Price', digits='Product Price',
-                             readonly=True, group_operator='min')
+                             readonly=True, aggregator='min')
     max_price = fields.Float('Max Unit Price', digits='Product Price',
-                             readonly=True, group_operator='max')
+                             readonly=True, aggregator='max')
     previous_price = fields.Float('Previous Unit Price', digits='Product Price',
-                                  readonly=True, group_operator='avg')
+                                  readonly=True, aggregator='avg')
     price_change = fields.Float('Price Change', digits='Product Price',
-                                readonly=True, group_operator='avg')
+                                readonly=True, aggregator='avg')
     variance_pct = fields.Float('Variance (%)', digits=(16, 2),
-                                readonly=True, group_operator='avg')
+                                readonly=True, aggregator='avg')
     abs_variance_pct = fields.Float('Avg Fluctuation (%)', digits=(16, 2),
-                                    readonly=True, group_operator='avg')
+                                    readonly=True, aggregator='avg')
     qty = fields.Float('Quantity', digits='Product Unit of Measure',
                        readonly=True)
     amount = fields.Monetary('Purchased Amount', readonly=True)
@@ -157,11 +158,12 @@ class LppVendorPriceReport(models.Model):
         self.env.flush_all()
         query = self._where_calc(domain)
         self._apply_ir_rules(query, 'read')
-        from_clause, where_clause, where_params = query.get_sql()
-        where_sql = where_clause and ('WHERE %s' % where_clause) or ''
+        # Odoo 18: Query.get_sql() is gone; build the statement with
+        # Query.select() so the WHERE clause and its parameters stay SQL objects.
         tbl = '"%s"' % self._table
-        self.env.cr.execute("""
-            SELECT {t}.company_id, {t}.partner_id, {t}.product_id,
+        query.groupby = SQL("{t}.company_id, {t}.partner_id, {t}.product_id".format(t=tbl))
+        self.env.cr.execute(query.select(SQL("""
+                   {t}.company_id, {t}.partner_id, {t}.product_id,
                    MIN({t}.currency_id)                      AS currency_id,
                    MIN({t}.uom_id)                           AS uom_id,
                    COUNT(*)                                  AS nbr,
@@ -180,10 +182,7 @@ class LppVendorPriceReport(models.Model):
                    SUM({t}.qty)                              AS qty,
                    SUM({t}.amount)                           AS amount,
                    AVG({t}.abs_variance_pct)                 AS avg_fluctuation
-              FROM {from_clause}
-              {where}
-          GROUP BY {t}.company_id, {t}.partner_id, {t}.product_id
-        """.format(t=tbl, from_clause=from_clause, where=where_sql), where_params)
+        """.format(t=tbl))))
         raw_rows = self.env.cr.dictfetchall()
 
         partners = self.env['res.partner'].browse({r['partner_id'] for r in raw_rows})

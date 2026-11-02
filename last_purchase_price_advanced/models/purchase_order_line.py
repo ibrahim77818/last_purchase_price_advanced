@@ -295,7 +295,7 @@ class PurchaseOrderLine(models.Model):
             'name': _('Price Stability: %s', self.product_id.display_name),
             'domain': domain,
             'views': [
-                (self.env.ref('last_purchase_price_advanced.lpp_vendor_price_report_view_tree').id, 'tree'),
+                (self.env.ref('last_purchase_price_advanced.lpp_vendor_price_report_view_tree').id, 'list'),
                 (self.env.ref('last_purchase_price_advanced.lpp_vendor_price_report_view_graph').id, 'graph'),
                 (self.env.ref('last_purchase_price_advanced.lpp_vendor_price_report_view_pivot').id, 'pivot'),
             ],
