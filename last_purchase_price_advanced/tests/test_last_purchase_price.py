@@ -170,7 +170,7 @@ class TestLastPurchasePrice(LppCommon):
     def test_13_large_order_single_query(self):
         products = self.env['product.product'].create([{
             'name': 'LPP Bulk %s' % i, 'type': 'consu', 'categ_id': self.categ.id,
-            'uom_id': self.uom_unit.id, 'uom_po_id': self.uom_unit.id,
+            'uom_id': self.uom_unit.id,
         } for i in range(300)])
         self._make_po(self.vendor_a, [(p, 1, 10.0 + i) for i, p in enumerate(products)])
         draft = self._make_po(self.vendor_a, [(p, 1, 20.0) for p in products], confirm=False)

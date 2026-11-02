@@ -51,7 +51,6 @@ class LppCommon(TransactionCase):
             'type': 'consu',
             'categ_id': cls.categ.id,
             'uom_id': cls.uom_unit.id,
-            'uom_po_id': cls.uom_unit.id,
             'purchase_ok': True,
         }, **vals))
 
@@ -62,12 +61,12 @@ class LppCommon(TransactionCase):
         order_lines = []
         for spec in lines:
             product, qty, price = spec[:3]
-            uom = spec[3] if len(spec) > 3 else product.uom_po_id
+            uom = spec[3] if len(spec) > 3 else product.uom_id
             order_lines.append((0, 0, {
                 'product_id': product.id,
                 'name': product.name,
                 'product_qty': qty,
-                'product_uom': uom.id,
+                'product_uom_id': uom.id,
                 'price_unit': price,
                 'date_planned': date,
             }))

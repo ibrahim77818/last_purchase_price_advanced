@@ -33,6 +33,9 @@ class TestVendorPriceReport(LppCommon):
                                    ('product_id', '=', self.product.id)], order='date, id')
 
     def _rows(self, **wizard_vals):
+        # Scope to the test category: demo databases (Odoo 17 loads demo
+        # purchase orders by default) must not leak into the assertions.
+        wizard_vals.setdefault('categ_ids', [(6, 0, self.categ.ids)])
         wizard = self.env['lpp.stability.wizard'].create(wizard_vals)
         return wizard, {(r['partner'], r['product']): r for r in wizard._get_stability_rows()}
 
@@ -56,12 +59,13 @@ class TestVendorPriceReport(LppCommon):
 
     def test_03_pivot_aggregates(self):
         self.env.flush_all()
-        groups = self.Report.read_group(
+        groups = self.Report._read_group(
             [('product_id', '=', self.product.id), ('partner_id', '=', self.vendor_a.id)],
-            ['unit_price:avg', 'min_price:min', 'max_price:max', 'nbr_purchases:sum', 'qty:sum'],
-            ['partner_id'])
+            ['partner_id'],
+            ['unit_price:avg', 'min_price:min', 'max_price:max', 'nbr_purchases:sum', 'qty:sum'])
         self.assertEqual(len(groups), 1)
-        group = groups[0]
+        group = dict(zip(['partner_id', 'unit_price', 'min_price', 'max_price', 'nbr_purchases', 'qty'],
+                         groups[0]))
         self.assertAlmostEqual(group['unit_price'], (100 + 110 + 99) / 3.0, places=4)
         self.assertAlmostEqual(group['min_price'], 99.0, places=4)
         self.assertAlmostEqual(group['max_price'], 110.0, places=4)
@@ -112,7 +116,8 @@ class TestVendorPriceReport(LppCommon):
             self.company.write({'lpp_stable_cv': 20.0, 'lpp_volatile_cv': 5.0})
 
     def test_07_excel_export(self):
-        wizard = self.env['lpp.stability.wizard'].create({})
+        wizard = self.env['lpp.stability.wizard'].create({
+            'categ_ids': [(6, 0, self.categ.ids)]})
         action = wizard.action_export_xlsx()
         self.assertEqual(action['type'], 'ir.actions.act_url')
         content = base64.b64decode(wizard.excel_file)
@@ -164,7 +169,7 @@ class TestVendorPriceReport(LppCommon):
         user = self.env['res.users'].create({
             'name': 'LPP Buyer', 'login': 'lpp_buyer',
             'company_id': other.id, 'company_ids': [(6, 0, other.ids)],
-            'groups_id': [(6, 0, [self.env.ref('purchase.group_purchase_manager').id])],
+            'group_ids': [(6, 0, [self.env.ref('purchase.group_purchase_manager').id])],
         })
         self.env.flush_all()
         self.assertFalse(self.Report.with_user(user).search([]),

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models, tools
+from odoo.tools import SQL
 
 TRENDS = [
     ('first', 'First Purchase'),
@@ -33,23 +34,23 @@ class LppVendorPriceReport(models.Model):
     user_id = fields.Many2one('res.users', 'Buyer', readonly=True)
 
     order_price_unit = fields.Float('Order Unit Price', digits='Product Price',
-                                    readonly=True, group_operator='avg')
+                                    readonly=True, aggregator='avg')
     currency_rate = fields.Float('Currency Rate', digits=(16, 6),
-                                 readonly=True, group_operator='avg')
+                                 readonly=True, aggregator='avg')
     unit_price = fields.Float('Avg Unit Price', digits='Product Price',
-                              readonly=True, group_operator='avg')
+                              readonly=True, aggregator='avg')
     min_price = fields.Float('Min Unit Price', digits='Product Price',
-                             readonly=True, group_operator='min')
+                             readonly=True, aggregator='min')
     max_price = fields.Float('Max Unit Price', digits='Product Price',
-                             readonly=True, group_operator='max')
+                             readonly=True, aggregator='max')
     previous_price = fields.Float('Previous Unit Price', digits='Product Price',
-                                  readonly=True, group_operator='avg')
+                                  readonly=True, aggregator='avg')
     price_change = fields.Float('Price Change', digits='Product Price',
-                                readonly=True, group_operator='avg')
+                                readonly=True, aggregator='avg')
     variance_pct = fields.Float('Variance (%)', digits=(16, 2),
-                                readonly=True, group_operator='avg')
+                                readonly=True, aggregator='avg')
     abs_variance_pct = fields.Float('Avg Fluctuation (%)', digits=(16, 2),
-                                    readonly=True, group_operator='avg')
+                                    readonly=True, aggregator='avg')
     qty = fields.Float('Quantity', digits='Product Unit of Measure',
                        readonly=True)
     amount = fields.Monetary('Purchased Amount', readonly=True)
@@ -79,25 +80,25 @@ class LppVendorPriceReport(models.Model):
                        pol.price_unit                             AS order_price_unit,
                        COALESCE(NULLIF(po.currency_rate, 0), 1.0) AS currency_rate,
                        COALESCE(c.lpp_neutral_band, 0.0)          AS neutral_band,
-                       -- UoM factors of "bigger" units are stored as 1/n
-                       -- (e.g. 0.0833.. for a dozen): round to 6 decimals so
-                       -- 600/dozen and 50/unit compare as the same price.
+                       -- Odoo 19: uom_uom.factor is the absolute quantity in
+                       -- the reference unit (Units = 1, Dozens = 12). Round to
+                       -- 6 decimals so 600/dozen and 50/unit compare equal.
                        ROUND(pol.product_qty::numeric
-                             / lu.factor::numeric
-                             * pu.factor::numeric, 6)             AS qty,
+                             * lu.factor::numeric
+                             / pu.factor::numeric, 6)             AS qty,
                        ROUND(pol.price_unit::numeric
                              / COALESCE(NULLIF(po.currency_rate, 0), 1.0)::numeric
-                             * lu.factor::numeric
-                             / pu.factor::numeric, 6)             AS unit_price
+                             * pu.factor::numeric
+                             / lu.factor::numeric, 6)             AS unit_price
                   FROM purchase_order_line pol
                   JOIN purchase_order po ON po.id = pol.order_id
                   JOIN res_company c ON c.id = po.company_id
                   JOIN res_partner rp ON rp.id = po.partner_id
                   JOIN product_product pp ON pp.id = pol.product_id
                   JOIN product_template pt ON pt.id = pp.product_tmpl_id
-                  JOIN uom_uom lu ON lu.id = pol.product_uom
+                  JOIN uom_uom lu ON lu.id = pol.product_uom_id
                   JOIN uom_uom pu ON pu.id = pt.uom_id
-                 WHERE po.state IN ('purchase', 'done')
+                 WHERE po.state = 'purchase'
                    AND pol.display_type IS NULL
                    AND pol.product_qty > 0
                    AND pol.price_unit > 0
@@ -155,13 +156,13 @@ class LppVendorPriceReport(models.Model):
         classify each pair by direction and stability."""
         # the view reads purchase tables directly: push pending ORM writes
         self.env.flush_all()
-        query = self._where_calc(domain)
-        self._apply_ir_rules(query, 'read')
-        from_clause, where_clause, where_params = query.get_sql()
-        where_sql = where_clause and ('WHERE %s' % where_clause) or ''
+        # Odoo 19: _search() returns a Query with the record rules applied
+        # (and no ORDER BY when no order is given).
+        query = self._search(domain)
         tbl = '"%s"' % self._table
-        self.env.cr.execute("""
-            SELECT {t}.company_id, {t}.partner_id, {t}.product_id,
+        query.groupby = SQL("{t}.company_id, {t}.partner_id, {t}.product_id".format(t=tbl))
+        self.env.cr.execute(query.select(SQL("""
+                   {t}.company_id, {t}.partner_id, {t}.product_id,
                    MIN({t}.currency_id)                      AS currency_id,
                    MIN({t}.uom_id)                           AS uom_id,
                    COUNT(*)                                  AS nbr,
@@ -180,10 +181,7 @@ class LppVendorPriceReport(models.Model):
                    SUM({t}.qty)                              AS qty,
                    SUM({t}.amount)                           AS amount,
                    AVG({t}.abs_variance_pct)                 AS avg_fluctuation
-              FROM {from_clause}
-              {where}
-          GROUP BY {t}.company_id, {t}.partner_id, {t}.product_id
-        """.format(t=tbl, from_clause=from_clause, where=where_sql), where_params)
+        """.format(t=tbl))))
         raw_rows = self.env.cr.dictfetchall()
 
         partners = self.env['res.partner'].browse({r['partner_id'] for r in raw_rows})

@@ -25,14 +25,14 @@ _LPP_HISTORY_QUERY = """
                po.partner_id                            AS partner_id,
                pol.id                                   AS line_id,
                pol.price_unit                           AS price_unit,
-               pol.product_uom                          AS uom_id,
+               pol.product_uom_id                       AS uom_id,
                po.currency_id                           AS currency_id,
                po.currency_rate                         AS currency_rate,
                COALESCE(po.date_approve, po.date_order) AS ref_date
           FROM purchase_order_line pol
           JOIN purchase_order po ON po.id = pol.order_id
           JOIN res_partner rp ON rp.id = po.partner_id
-         WHERE po.state IN ('purchase', 'done')
+         WHERE po.state = 'purchase'
            AND pol.display_type IS NULL
            AND pol.product_qty > 0
            AND pol.price_unit > 0
@@ -107,7 +107,7 @@ class PurchaseOrderLine(models.Model):
     def init(self):
         super().init()
         create_index(
-            self._cr, 'purchase_order_line_lpp_product_order_idx',
+            self.env.cr, 'purchase_order_line_lpp_product_order_idx',
             self._table, ['product_id', 'order_id'],
             where='display_type IS NULL')
 
@@ -153,7 +153,7 @@ class PurchaseOrderLine(models.Model):
             return {}
         self.env['purchase.order.line'].flush_model([
             'order_id', 'product_id', 'product_qty', 'price_unit',
-            'product_uom', 'display_type'])
+            'product_uom_id', 'display_type'])
         self.env['purchase.order'].flush_model([
             'state', 'company_id', 'partner_id', 'currency_id',
             'currency_rate', 'date_order', 'date_approve'])
@@ -198,12 +198,12 @@ class PurchaseOrderLine(models.Model):
             current_rate = float(order.currency_rate or 1.0)
             price = price / hist_rate * current_rate
         src_uom = uom_by_id.get(row['uom_id'])
-        if src_uom and self.product_uom and src_uom != self.product_uom:
-            price = src_uom._compute_price(price, self.product_uom)
+        if src_uom and self.product_uom_id and src_uom != self.product_uom_id:
+            price = src_uom._compute_price(price, self.product_uom_id)
         return price
 
     @api.depends(
-        'display_type', 'product_id', 'product_uom', 'price_unit',
+        'display_type', 'product_id', 'product_uom_id', 'price_unit',
         'order_id.partner_id', 'order_id.currency_id',
         'order_id.currency_rate', 'order_id.company_id',
         'order_id.company_id.lpp_tracking_enabled',
@@ -295,7 +295,7 @@ class PurchaseOrderLine(models.Model):
             'name': _('Price Stability: %s', self.product_id.display_name),
             'domain': domain,
             'views': [
-                (self.env.ref('last_purchase_price_advanced.lpp_vendor_price_report_view_tree').id, 'tree'),
+                (self.env.ref('last_purchase_price_advanced.lpp_vendor_price_report_view_tree').id, 'list'),
                 (self.env.ref('last_purchase_price_advanced.lpp_vendor_price_report_view_graph').id, 'graph'),
                 (self.env.ref('last_purchase_price_advanced.lpp_vendor_price_report_view_pivot').id, 'pivot'),
             ],
