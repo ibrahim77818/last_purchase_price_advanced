@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="product_template_form_view_lpp" model="ir.ui.view">
+        <field name="name">product.template.form.inherit.last.purchase.price.advanced</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_lpp_price_stability" type="object"
+                        class="oe_stat_button" icon="fa-line-chart"
+                        groups="purchase.group_purchase_user"
+                        attrs="{'invisible': [('purchase_ok', '=', False)]}">
+                    <div class="o_stat_info">
+                        <span class="o_stat_text">Price</span>
+                        <span class="o_stat_text">Stability</span>
+                    </div>
+                </button>
+            </div>
+        </field>
+    </record>
+
+</odoo>

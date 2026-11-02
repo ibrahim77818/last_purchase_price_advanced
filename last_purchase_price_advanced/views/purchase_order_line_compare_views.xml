@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="purchase_order_line_compare_tree_lpp" model="ir.ui.view">
+        <field name="name">purchase.order.line.compare.tree.inherit.last.purchase.price.advanced</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase_requisition.purchase_order_line_compare_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price_unit']" position="after">
+                <field name="lpp_enabled" invisible="1"/>
+                <field name="lpp_last_price" optional="show"
+                       attrs="{'invisible': ['|', ('lpp_enabled', '=', False), ('lpp_price_signal', 'in', (False, 'new'))]}"/>
+                <field name="lpp_price_variance" string="Var. %" optional="show"
+                       attrs="{'invisible': ['|', ('lpp_enabled', '=', False), ('lpp_price_signal', 'in', (False, 'new'))]}"
+                       decoration-danger="lpp_price_signal == 'up'"
+                       decoration-success="lpp_price_signal == 'down'"/>
+                <field name="lpp_price_signal" string="Signal" widget="badge" optional="show"
+                       attrs="{'invisible': [('lpp_enabled', '=', False)]}"
+                       decoration-danger="lpp_price_signal == 'up'"
+                       decoration-success="lpp_price_signal == 'down'"
+                       decoration-info="lpp_price_signal == 'same'"
+                       decoration-muted="lpp_price_signal == 'new'"/>
+                <field name="lpp_last_partner_id" string="Last Vendor" optional="hide"
+                       attrs="{'invisible': [('lpp_enabled', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

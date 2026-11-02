@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_lpp" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.last.purchase.price.advanced</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="purchase.res_config_settings_view_form_purchase"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@data-key='purchase']" position="inside">
+                <h2>Price Intelligence</h2>
+                <div class="row mt16 o_settings_container" name="lpp_setting_container" id="lpp_price_intelligence">
+                    <div class="col-12 col-lg-6 o_setting_box" id="lpp_tracking">
+                        <div class="o_setting_left_pane">
+                            <field name="lpp_tracking_enabled"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label for="lpp_tracking_enabled"/>
+                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                            <div class="text-muted">
+                                Show the last confirmed purchase price, its variance and a price signal on purchase order lines
+                            </div>
+                            <div class="content-group" attrs="{'invisible': [('lpp_tracking_enabled', '=', False)]}">
+                                <div class="row mt16">
+                                    <label for="lpp_lookup_scope" class="col-lg-6 o_light_label"/>
+                                    <field name="lpp_lookup_scope" class="col-lg-6" widget="radio" options="{'horizontal': true}"/>
+                                </div>
+                                <div class="row">
+                                    <label for="lpp_neutral_band" class="col-lg-6 o_light_label"/>
+                                    <div class="col-lg-6 d-flex align-items-baseline">
+                                        <field name="lpp_neutral_band" style="max-width: 6rem;"/>
+                                        <span class="ms-1">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box" id="lpp_stability_thresholds">
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Vendor Price Stability</span>
+                            <span class="fa fa-lg fa-building-o" title="Values set here are company-specific." aria-label="Values set here are company-specific." groups="base.group_multi_company" role="img"/>
+                            <div class="text-muted">
+                                Coefficient of variation thresholds used to classify vendor prices as stable, moderate or volatile
+                            </div>
+                            <div class="content-group">
+                                <div class="row mt16">
+                                    <label for="lpp_stable_cv" class="col-lg-6 o_light_label"/>
+                                    <div class="col-lg-6 d-flex align-items-baseline">
+                                        <field name="lpp_stable_cv" style="max-width: 6rem;"/>
+                                        <span class="ms-1">%</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <label for="lpp_volatile_cv" class="col-lg-6 o_light_label"/>
+                                    <div class="col-lg-6 d-flex align-items-baseline">
+                                        <field name="lpp_volatile_cv" style="max-width: 6rem;"/>
+                                        <span class="ms-1">%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt8">
+                                <button name="%(last_purchase_price_advanced.action_lpp_vendor_price_report)d" type="action"
+                                        string="Open Vendor Price Stability" icon="fa-arrow-right" class="btn-link"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

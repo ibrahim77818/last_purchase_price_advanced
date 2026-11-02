@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="lpp_vendor_price_report_view_pivot" model="ir.ui.view">
+        <field name="name">lpp.vendor.price.report.pivot</field>
+        <field name="model">lpp.vendor.price.report</field>
+        <field name="arch" type="xml">
+            <pivot string="Vendor Price Stability" disable_linking="0" sample="1">
+                <field name="partner_id" type="row"/>
+                <field name="product_id" type="row"/>
+                <field name="date" interval="quarter" type="col"/>
+                <field name="unit_price" type="measure"/>
+                <field name="min_price" type="measure"/>
+                <field name="max_price" type="measure"/>
+                <field name="abs_variance_pct" type="measure"/>
+                <field name="nbr_purchases" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="lpp_vendor_price_report_view_graph" model="ir.ui.view">
+        <field name="name">lpp.vendor.price.report.graph</field>
+        <field name="model">lpp.vendor.price.report</field>
+        <field name="arch" type="xml">
+            <graph string="Vendor Price Stability" type="bar" stacked="0" sample="1" disable_linking="0">
+                <field name="date" interval="quarter"/>
+                <field name="partner_id"/>
+                <field name="unit_price" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="lpp_vendor_price_report_view_tree" model="ir.ui.view">
+        <field name="name">lpp.vendor.price.report.tree</field>
+        <field name="model">lpp.vendor.price.report</field>
+        <field name="arch" type="xml">
+            <tree string="Vendor Price History" create="0" edit="0" delete="0" sample="1"
+                  decoration-danger="trend == 'up'" decoration-success="trend == 'down'"
+                  decoration-muted="trend == 'first'">
+                <field name="date" widget="date"/>
+                <field name="order_id"/>
+                <field name="partner_id"/>
+                <field name="product_id"/>
+                <field name="categ_id" optional="hide"/>
+                <field name="company_id" groups="base.group_multi_company" optional="hide"/>
+                <field name="order_currency_id" groups="base.group_multi_currency" optional="hide"/>
+                <field name="order_price_unit" groups="base.group_multi_currency" optional="hide"/>
+                <field name="currency_rate" groups="base.group_multi_currency" optional="hide"/>
+                <field name="uom_id" groups="uom.group_uom" optional="show"/>
+                <field name="unit_price" string="Unit Price"/>
+                <field name="previous_price" optional="show"/>
+                <field name="price_change" optional="hide"/>
+                <field name="variance_pct" optional="show"/>
+                <field name="trend" widget="badge"
+                       decoration-danger="trend == 'up'"
+                       decoration-success="trend == 'down'"
+                       decoration-info="trend == 'stable'"
+                       decoration-muted="trend == 'first'"/>
+                <field name="qty" sum="Total" optional="show"/>
+                <field name="amount" sum="Total" optional="show"/>
+                <field name="currency_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="lpp_vendor_price_report_view_search" model="ir.ui.view">
+        <field name="name">lpp.vendor.price.report.search</field>
+        <field name="model">lpp.vendor.price.report</field>
+        <field name="arch" type="xml">
+            <search string="Vendor Price Stability">
+                <field name="partner_id"/>
+                <field name="product_id"/>
+                <field name="product_tmpl_id"/>
+                <field name="categ_id" filter_domain="[('categ_id', 'child_of', raw_value)]"/>
+                <field name="order_id"/>
+                <field name="user_id"/>
+                <filter string="Price Up" name="trend_up" domain="[('trend', '=', 'up')]"/>
+                <filter string="Price Down" name="trend_down" domain="[('trend', '=', 'down')]"/>
+                <filter string="Stable" name="trend_stable" domain="[('trend', '=', 'stable')]"/>
+                <filter string="First Purchase" name="trend_first" domain="[('trend', '=', 'first')]"/>
+                <separator/>
+                <filter string="Fluctuation above 5%" name="fluct_5" domain="[('abs_variance_pct', '&gt;', 5)]"/>
+                <filter string="Fluctuation above 10%" name="fluct_10" domain="[('abs_variance_pct', '&gt;', 10)]"/>
+                <separator/>
+                <filter string="Purchase Date" name="filter_date" date="date"/>
+                <group expand="0" string="Group By">
+                    <filter string="Vendor" name="group_partner" context="{'group_by': 'partner_id'}"/>
+                    <filter string="Product" name="group_product" context="{'group_by': 'product_id'}"/>
+                    <filter string="Product Category" name="group_categ" context="{'group_by': 'categ_id'}"/>
+                    <filter string="Trend" name="group_trend" context="{'group_by': 'trend'}"/>
+                    <filter string="Buyer" name="group_user" context="{'group_by': 'user_id'}"/>
+                    <filter string="Company" name="group_company" context="{'group_by': 'company_id'}" groups="base.group_multi_company"/>
+                    <filter string="Order Currency" name="group_currency" context="{'group_by': 'order_currency_id'}" groups="base.group_multi_currency"/>
+                    <separator/>
+                    <filter string="Purchase Date" name="group_date" context="{'group_by': 'date:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_lpp_vendor_price_report" model="ir.actions.act_window">
+        <field name="name">Vendor Price Stability</field>
+        <field name="res_model">lpp.vendor.price.report</field>
+        <field name="view_mode">pivot,graph,tree</field>
+        <field name="search_view_id" ref="lpp_vendor_price_report_view_search"/>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No confirmed purchases to analyze yet
+            </p>
+            <p>
+                Track how stable the prices of your vendors are: average, minimum and maximum
+                unit price, fluctuation and trend for every vendor and product, normalized to
+                the product unit of measure and the company currency.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_lpp_vendor_price_report_view_pivot" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">pivot</field>
+        <field name="view_id" ref="lpp_vendor_price_report_view_pivot"/>
+        <field name="act_window_id" ref="action_lpp_vendor_price_report"/>
+    </record>
+    <record id="action_lpp_vendor_price_report_view_graph" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="lpp_vendor_price_report_view_graph"/>
+        <field name="act_window_id" ref="action_lpp_vendor_price_report"/>
+    </record>
+    <record id="action_lpp_vendor_price_report_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="3"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="lpp_vendor_price_report_view_tree"/>
+        <field name="act_window_id" ref="action_lpp_vendor_price_report"/>
+    </record>
+
+</odoo>

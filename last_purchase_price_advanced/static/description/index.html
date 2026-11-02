@@ -1,0 +1,228 @@
+<!-- Odoo Apps description page for last_purchase_price_advanced (Odoo 16.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
+
+  <!-- ============================== HERO ============================== -->
+  <div style="background:linear-gradient(120deg,#017E84 0%,#3d6b78 45%,#714B67 100%);border-radius:18px;padding:48px 40px 40px;color:#ffffff;margin-top:12px;">
+    <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85;margin-bottom:10px;">Purchase &middot; Price Intelligence &middot; Reporting</div>
+    <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">Last Purchase Price Advanced</h1>
+    <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">See the last confirmed purchase price on every RFQ line, converted to the line&rsquo;s unit of measure and currency, with the variance and a coloured up/down signal. Then measure how stable each vendor&rsquo;s prices really are with the Vendor Price Stability report in pivot, graph, Excel and PDF.</p>
+    <div>
+      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 16.0</span>
+      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
+      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">25 automated tests</span>
+      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Arabic &amp; RTL</span>
+      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Technical name: last_purchase_price_advanced</span>
+      <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">LGPL-3</span>
+    </div>
+  </div>
+
+  <!-- ============================== KEY NUMBERS ============================== -->
+  <div style="display:flex;flex-wrap:wrap;margin:28px -8px 8px;">
+    <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">1 query</div><div style="font-size:15px;color:#555;">Resolves the last price of every line of an order, whether it has 5 lines or 500</div></div>
+    <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">4 signals</div><div style="font-size:15px;color:#555;">Price Up, Price Down, Unchanged and No History on each RFQ line</div></div>
+    <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">3 classes</div><div style="font-size:15px;color:#555;">Stable, Moderate and Volatile vendors, from thresholds you set</div></div>
+    <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">5 outputs</div><div style="font-size:15px;color:#555;">Pivot, graph, list, Excel workbook and landscape PDF</div></div>
+  </div>
+
+  <!-- ============================== WHY ============================== -->
+  <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
+  <p style="font-size:16px;color:#555;margin:0 0 18px;">Buyers negotiate better when they can see, on the line they are typing, what they paid last time.</p>
+  <div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
+    <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
+      <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 16</h3>
+      <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+        <li>The RFQ line shows the <b>vendor pricelist</b> price, not what you actually paid on the last confirmed order.</li>
+        <li>Checking the last price means leaving the RFQ and searching <b>Purchase Analysis</b> or old orders.</li>
+        <li>An old order in <b>another currency</b> or bought <b>by the dozen</b> cannot be compared at a glance.</li>
+        <li>Nothing tells the buyer whether the new price is <b>higher or lower</b>, or by how much.</li>
+        <li>There is no report measuring how much a vendor&rsquo;s prices <b>fluctuate</b> over time.</li>
+        <li>Exporting a clean, filtered price history for a meeting takes manual work in a spreadsheet.</li>
+      </ul>
+    </div>
+    <div style="flex:1 1 440px;margin:10px;border:1px solid #cfe7e7;background:#f4fbfb;border-radius:14px;padding:24px 26px;">
+      <h3 style="font-size:19px;font-weight:700;color:#017E84;margin:0 0 12px;">With this module</h3>
+      <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+        <li><b>Last Price</b> comes from the most recent <b>confirmed</b> order, never from drafts or cancelled orders.</li>
+        <li>It appears <b>directly on the RFQ line</b>, next to the unit price, as soon as the product is chosen.</li>
+        <li>It is <b>converted</b> with the currency rate stored on both orders and to the line&rsquo;s unit of measure.</li>
+        <li><b>Var. %</b> and a coloured <b>Signal</b> badge show the direction and size of the change.</li>
+        <li><b>Vendor Price Stability</b> scores every vendor/product pair from 0 to 100 using the coefficient of variation.</li>
+        <li>One wizard prints a <b>PDF</b> or exports a filtered <b>Excel</b> workbook with summary and price history.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============================== HOW IT WORKS ============================== -->
+  <h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">How it works</h2>
+  <p style="font-size:16px;color:#555;margin:0 0 18px;">Four steps, no new documents to learn.</p>
+  <div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+    <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">1</div><div style="font-weight:700;margin-bottom:4px;">Enable</div><div style="font-size:14px;color:#555;">Turn on <b>Advanced Last Purchase Price</b> in Purchase settings. It is off by default and set per company.</div></div>
+    <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Quote</div><div style="font-size:14px;color:#555;">Add products to an RFQ. Each line shows the last confirmed price, the variance and a signal.</div></div>
+    <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Investigate</div><div style="font-size:14px;color:#555;">Click the chart icon on a line, or the <b>Price Stability</b> button on the product, to open its price history.</div></div>
+    <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #cfe7e7;background:#f4fbfb;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#017E84;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">4</div><div style="font-weight:700;margin-bottom:4px;">Report</div><div style="font-size:14px;color:#555;">Analyse vendors in pivot or graph, or print the stability PDF / Excel for your next negotiation.</div></div>
+  </div>
+
+  <!-- ============================== FEATURES ============================== -->
+  <h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Features</h2>
+  <p style="font-size:16px;color:#555;margin:0 0 6px;">All screenshots were taken on Odoo 16 with Odoo&rsquo;s demo data plus 17 confirmed purchase orders from January 2025 to May 2026 (four vendors, one invoicing in EUR, pedal bins bought by the dozen) and four open RFQs.</p>
+
+  <div style="margin:44px 0 0;">
+    <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Menus</div>
+    <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Two new entries under Purchase reporting</h3>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Purchase &rsaquo; Reporting &rsaquo; Vendor Price Stability</b> opens the analysis; <b>Purchase &rsaquo; Reporting &rsaquo; Vendor Price Stability (PDF / Excel)</b> opens the print and export wizard. Both are visible to Purchase Administrators.</p>
+    <img src="lpp_01_menus.png" alt="Purchase Reporting menu with Vendor Price Stability entries" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  </div>
+
+  <div style="margin:44px 0 0;">
+    <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 1</div>
+    <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">A dedicated Price Intelligence section in settings</h3>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">In <b>Purchase &rsaquo; Configuration &rsaquo; Settings &rsaquo; Price Intelligence</b>: switch <b>Advanced Last Purchase Price</b> on or off, choose the <b>Last Price Source</b> (<b>Same Vendor</b> or <b>Any Vendor</b>), set a <b>Neutral Variance Band (%)</b> under which a change counts as unchanged, and the <b>Stable</b> / <b>Volatile Threshold (CV %)</b> used by the stability report. Every value is stored per company.</p>
+    <img src="lpp_02_settings.png" alt="Price Intelligence section in Purchase settings" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  </div>
+
+  <div style="margin:44px 0 0;">
+    <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
+    <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Last price, variance and signal on every RFQ line</h3>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">New columns next to <b>Unit Price</b>: <b>Last Price</b>, <b>Var. %</b> and <b>Signal</b>. Red <b>Price Up</b> means you are about to pay more than last time, green <b>Price Down</b> means less, <b>Unchanged</b> stays inside the neutral band, <b>No History</b> means the product was never bought (from this vendor). The pedal bins below were last bought at 600.00 per dozen and are now quoted at 50.00 per unit: correctly shown as <b>Unchanged</b>.</p>
+    <img src="lpp_03_po_signals.png" alt="RFQ lines with Last Price, Var. % and Price Up / Price Down signals" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  </div>
+
+  <div style="margin:44px 0 0;">
+    <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
+    <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Multi-currency and unit of measure, fully traceable</h3>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Optional columns show where the last price comes from: <b>Last UoM</b>, <b>Last Currency</b>, <b>Hist. Rate</b> (the rate stored on the historical order), <b>Last PO</b> and <b>Last Purchase</b> date. Here Ready Mat was last paid 281.00&nbsp;EUR at a rate of 0.86; the new RFQ is in USD, so the last price is shown as 326.74&nbsp;USD.</p>
+    <img src="lpp_04_po_history_columns.png" alt="Optional history columns: last currency, historical rate, last PO and date" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+    <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Rule:</b> same currency &rarr; the historical price is used as is. Different currency &rarr; historical price &divide; rate of the historical order &times; rate of the current order. The unit of measure is converted with Odoo&rsquo;s own UoM conversion, and the result is rounded once, to the <b>Product Price</b> precision. Example: 281.00&nbsp;EUR &divide; 0.86 &times; 1.00 = 326.74&nbsp;USD; quoted 338.00 &rarr; <b>+3.45&nbsp;%</b>, <b>Price Up</b>.</div>
+  </div>
+
+  <div style="margin:44px 0 0;">
+    <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
+    <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Compare alternative RFQs with their price history</h3>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">In <b>Alternatives &rsaquo; Compare Product Lines</b> (Purchase Agreements), each vendor&rsquo;s offer shows its own <b>Last Price</b>, <b>Var. %</b> and <b>Signal</b>, plus an optional <b>Last Vendor</b> column, so you choose the best offer knowing who raised prices.</p>
+    <img src="lpp_11_compare.png" alt="Compare Product Lines view with last price and signal per vendor" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  </div>
+
+  <div style="margin:44px 0 0;">
+    <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 5</div>
+    <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Vendor Price Stability analysis: pivot, graph and list</h3>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Every confirmed purchase line, priced per product unit of measure and in company currency, compared with the previous purchase of the same product from the same vendor. The pivot crosses vendor &times; product &times; quarter with <b>Avg Unit Price</b>, <b>Min Unit Price</b>, <b>Max Unit Price</b>, <b>Avg Fluctuation (%)</b> and <b># Purchases</b>.</p>
+    <img src="lpp_05_pivot.png" alt="Vendor Price Stability pivot by vendor, product and quarter" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The graph compares vendors for one product over time: Wood Corner raised Office Chair Black every quarter, from 120.00 to 152.00, while The Jackson Group held 140.00.</p>
+    <img src="lpp_06_graph.png" alt="Average unit price per quarter and vendor for one product" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The list shows each purchase with <b>Previous Unit Price</b>, <b>Variance (%)</b> and <b>Trend</b> (<b>First Purchase</b>, <b>Price Up</b>, <b>Price Down</b>, <b>Stable</b>). Filters: trend, <b>Fluctuation above 5%</b> / <b>10%</b>, purchase date; group by vendor, product, category, trend, buyer, company or order currency.</p>
+    <img src="lpp_07_list.png" alt="Price history list with previous price, variance and trend" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  </div>
+
+  <div style="margin:44px 0 0;">
+    <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 6</div>
+    <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">One wizard for PDF and Excel</h3>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Filter by period, <b>Vendors</b>, <b>Products</b>, <b>Product Categories</b>, <b>Price Trend</b> (<b>Rising</b>, <b>Falling</b>, <b>Flat</b>), <b>Stability</b> (<b>Stable</b>, <b>Moderate</b>, <b>Volatile</b>) and <b>Minimum Purchases</b>. Then <b>Print PDF</b>, <b>Export Excel</b> or <b>Open Analysis</b> with the same filters.</p>
+    <img src="lpp_08_wizard.png" alt="Vendor Price Stability Report wizard" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  </div>
+
+  <div style="margin:44px 0 0;">
+    <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 7</div>
+    <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">A landscape PDF ready for vendor reviews</h3>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">KPI cards (pairs, purchases analysed, rising, falling, volatile, average score), then one block per vendor with first, last, min, max and average price, <b>CV %</b>, <b>Change %</b>, trend and stability badges and a score bar.</p>
+    <img src="lpp_09_pdf_report.png" alt="Vendor Price Stability PDF report" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  </div>
+
+  <div style="margin:44px 0 0;">
+    <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 8</div>
+    <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">An Excel workbook you can filter and sort</h3>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Sheet <b>Stability Summary</b>: KPIs and 24 columns per vendor/product with autofilter, frozen panes, coloured <b>Change %</b> and a red-to-green score scale. Optional sheet <b>Price History</b>: every purchase with order currency, rate and normalized price. Pages are set to A4 landscape, one page wide.</p>
+    <img src="lpp_10_excel.png" alt="Excel export Stability Summary sheet" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  </div>
+
+  <div style="margin:44px 0 0;">
+    <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 9</div>
+    <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Price Stability button on the product</h3>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">The <b>Price Stability</b> smart button on the product form opens the analysis filtered on that product, in pivot and graph.</p>
+    <img src="lpp_13_product_button.png" alt="Price Stability smart button on the product form" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  </div>
+
+  <div style="margin:44px 0 0;">
+    <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 10</div>
+    <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Complete Arabic translation, right-to-left everywhere</h3>
+    <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Every field, selection, menu, view, report and message is translated in <b>ar_001</b>. The backend, the PDF and the Excel sheets switch to right-to-left automatically.</p>
+    <img src="lpp_12_arabic_rtl.png" alt="RFQ lines with signals in Arabic, right to left" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+    <img src="lpp_14_arabic_pivot.png" alt="Vendor Price Stability pivot in Arabic" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+    <img src="lpp_15_pdf_arabic.png" alt="Vendor Price Stability PDF in Arabic" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  </div>
+
+  <!-- ============================== SIGNALS & SCORES ============================== -->
+  <h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Signals, trends and stability classes</h2>
+  <p style="font-size:16px;color:#555;margin:0 0 18px;">What each badge means.</p>
+  <div style="display:flex;flex-wrap:wrap;margin:0 -10px;font-size:15px;line-height:1.6;">
+    <div style="flex:1 1 440px;margin:10px;">
+      <div style="font-weight:700;margin-bottom:8px;">On RFQ lines</div>
+      <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Price Up</span> unit price above the last price by more than the neutral band</div>
+      <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Price Down</span> unit price below the last price by more than the band</div>
+      <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#dbeafe;color:#1d4ed8;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Unchanged</span> |variance| &le; neutral band</div>
+      <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#f2f4f7;color:#475467;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">No History</span> no confirmed purchase found</div>
+    </div>
+    <div style="flex:1 1 440px;margin:10px;">
+      <div style="font-weight:700;margin-bottom:8px;">In the stability report</div>
+      <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Stable</span> CV &le; Stable Threshold (default 2&nbsp;%)</div>
+      <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fef3c7;color:#b45309;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Moderate</span> between the two thresholds</div>
+      <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Volatile</span> CV &gt; Volatile Threshold (default 10&nbsp;%)</div>
+      <div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#f2f4f7;color:#475467;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Rising / Falling / Flat</span> last price of the period vs. the first one</div>
+    </div>
+  </div>
+  <div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Score:</b> CV % = standard deviation &divide; average unit price &times; 100. Score = 100 &minus; CV &times; 100 &divide; (2 &times; Volatile Threshold), never below 0. So 100 = no fluctuation, 50 = exactly at the volatile threshold, 0 = twice the threshold. Example: Cabinet with Doors from Azure Interior, CV 10.54&nbsp;% &rarr; score 47.3, <b>Volatile</b>.</div>
+
+  <!-- ============================== CORNER CASES ============================== -->
+  <h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
+  <p style="font-size:16px;color:#555;margin:0 0 18px;">Each of these is covered by an automated test.</p>
+  <div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Draft and cancelled orders</b><br/><span style="color:#555;">Ignored. Only orders in Purchase Order or Locked state count, ranked by confirmation date.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>The order being edited</b><br/><span style="color:#555;">Excluded, so a confirmed order is compared with the order before it, not with itself.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Late confirmations</b><br/><span style="color:#555;">An order created later but confirmed for an earlier date never overrides the true last purchase.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Vendor contacts</b><br/><span style="color:#555;">Orders placed on a contact person are matched on the commercial partner (the company).</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Dozens vs. units</b><br/><span style="color:#555;">600.00 per dozen and 50.00 per unit are the same price: no false &ldquo;Price Up&rdquo;, no rounding drift.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Foreign currencies</b><br/><span style="color:#555;">Uses the rate stored on each order, not today&rsquo;s rate, so history never changes when rates are updated.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Sections, notes, zero lines</b><br/><span style="color:#555;">Section and note lines get no signal; lines with zero quantity or price are not used as history.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Large orders</b><br/><span style="color:#555;">A 300-line RFQ is resolved with one SQL query; with 1 million order lines a 500-line RFQ takes about 25&nbsp;ms.</span></div>
+    <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Multi-company</b><br/><span style="color:#555;">Settings, history and the report are per company; users never see prices of companies they cannot access.</span></div>
+  </div>
+
+  <!-- ============================== SECURITY ============================== -->
+  <h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Security</h2>
+  <p style="font-size:16px;color:#555;margin:0 0 18px;">Uses the standard Purchase groups; no new group to assign.</p>
+  <table style="width:100%;border-collapse:collapse;font-size:15px;">
+    <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Who</th><th style="text-align:left;padding:10px 14px;">Sees</th></tr></thead>
+    <tbody>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Purchase / User</td><td style="padding:10px 14px;">Last price columns and signals on RFQ lines, the chart button on lines and the <b>Price Stability</b> product button (read-only analysis)</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Purchase / Administrator</td><td style="padding:10px 14px;">Everything above, plus both <b>Reporting</b> menus (analysis, PDF and Excel)</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Settings / Administration</td><td style="padding:10px 14px;">The <b>Price Intelligence</b> settings (enable, source, band, thresholds)</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Multi-company</td><td style="padding:10px 14px;">Record rule on the analysis: only companies the user has access to</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ============================== TECHNICAL ============================== -->
+  <h2 style="font-size:28px;font-weight:700;margin:44px 0 6px;color:#2b2b33;">Technical details</h2>
+  <table style="width:100%;border-collapse:collapse;font-size:15px;table-layout:fixed;overflow-wrap:anywhere;">
+    <tbody>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:34%;color:#777;">Odoo version</td><td style="padding:10px 14px;">16.0, Community and Enterprise</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:34%;color:#777;">Depends on</td><td style="padding:10px 14px;overflow-wrap:anywhere;"><code>purchase</code>, <code>purchase_requisition</code></td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:34%;color:#777;">Python dependency</td><td style="padding:10px 14px;overflow-wrap:anywhere;"><code>xlsxwriter</code> (already in Odoo&rsquo;s requirements)</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:34%;color:#777;">Menus</td><td style="padding:10px 14px;">Purchase &rsaquo; Reporting &rsaquo; Vendor Price Stability; Purchase &rsaquo; Reporting &rsaquo; Vendor Price Stability (PDF / Excel)</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:34%;color:#777;">Settings</td><td style="padding:10px 14px;">Purchase &rsaquo; Configuration &rsaquo; Settings &rsaquo; Price Intelligence</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:34%;color:#777;">Models</td><td style="padding:10px 14px;overflow-wrap:anywhere;"><code>lpp.vendor.price.report</code> (SQL view), <code>lpp.stability.wizard</code>; extends <code>purchase.order.line</code>, <code>purchase.order</code>, <code>res.company</code>, <code>res.config.settings</code>, <code>product.template</code></td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:34%;color:#777;">Performance</td><td style="padding:10px 14px;">Batched SQL lookup with window functions and a partial index on <code>purchase_order_line(product_id, order_id)</code>; report statistics aggregated in SQL</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:34%;color:#777;">Translations</td><td style="padding:10px 14px;">Arabic (<code>ar_001</code>), RTL-ready backend, PDF and Excel</td></tr>
+      <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:34%;color:#777;">Automated tests</td><td style="padding:10px 14px;">25: toggle, signals, confirmed-only history, own order excluded, UoM and multi-currency conversion, vendor scope, neutral band, 300-line single query, form onchange, report trends and statistics, wizard filters, Excel, PDF, Arabic RTL, multi-company rule</td></tr>
+      <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:34%;color:#777;">License</td><td style="padding:10px 14px;">LGPL-3</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ============================== CONTACT ============================== -->
+  <div style="margin:52px 0 40px;background:linear-gradient(120deg,#714B67 0%,#017E84 100%);border-radius:18px;padding:36px 40px;color:#fff;">
+    <h2 style="font-size:26px;font-weight:700;margin:0 0 8px;color:#fff;">Support &amp; customization</h2>
+    <p style="font-size:16px;line-height:1.6;margin:0 0 20px;color:#fff;opacity:.95;">Questions, a demo, or an adaptation to your own process? Get in touch.</p>
+    <a href="mailto:ibrahim.yahiah@gmail.com" style="display:inline-block;background:#fff;color:#714B67;font-weight:700;text-decoration:none;border-radius:8px;padding:12px 22px;margin:0 12px 10px 0;">&#9993;&nbsp; ibrahim.yahiah@gmail.com</a>
+    <a href="https://www.linkedin.com/in/ibrahim-yahia" target="_blank" rel="noopener" style="display:inline-block;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;border-radius:8px;padding:10px 22px;margin:0 0 10px 0;">LinkedIn: Ibrahim Yahia</a>
+    <p style="font-size:13px;margin:14px 0 0;opacity:.8;color:#fff;">Author: Ibrahim Yahia &middot; License: LGPL-3</p>
+  </div>
+
+</section>

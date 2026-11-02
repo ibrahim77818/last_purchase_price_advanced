@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_lpp_vendor_price_report_user,lpp.vendor.price.report user,model_lpp_vendor_price_report,purchase.group_purchase_user,1,0,0,0
+access_lpp_stability_wizard_user,lpp.stability.wizard user,model_lpp_stability_wizard,purchase.group_purchase_user,1,1,1,1

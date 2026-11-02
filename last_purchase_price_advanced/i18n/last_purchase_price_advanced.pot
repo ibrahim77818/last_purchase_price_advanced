@@ -1,0 +1,1121 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* last_purchase_price_advanced
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-01 12:00+0000\n"
+"PO-Revision-Date: 2026-11-01 12:00+0000\n"
+"Last-Translator: Ibrahim Yahia\n"
+"Language-Team: Arabic\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__nbr_decreases
+#, python-format
+msgid "# Decreases"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__nbr_increases
+#, python-format
+msgid "# Increases"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__nbr_purchases
+msgid "# Purchases"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid "("
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid ")"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid "/"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid "100 = no fluctuation, 50 = at the volatile threshold, 0 = twice the volatile threshold."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid ":"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_form_lpp
+msgid "<i class=\"fa fa-caret-down\" role=\"img\" aria-label=\"Price Down\" title=\"Price Down\"/>"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_form_lpp
+msgid "<i class=\"fa fa-caret-up\" role=\"img\" aria-label=\"Price Up\" title=\"Price Up\"/>"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.res_config_settings_view_form_lpp
+msgid "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid ""
+"<span class=\"lpp_sep\">|</span>\n"
+"                                            <span>Amount</span>:"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid ""
+"<span class=\"lpp_sep\">|</span>\n"
+"                                            <span>Score</span>:"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.res_config_settings_view_form_lpp
+msgid "<span class=\"ms-1\">%</span>"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.res_config_settings_view_form_lpp
+msgid ""
+"<span class=\"o_form_label\">Vendor Price Stability</span>\n"
+"                            <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.product_template_form_view_lpp
+msgid ""
+"<span class=\"o_stat_text\">Price</span>\n"
+"                        <span class=\"o_stat_text\">Stability</span>"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid "<span>Printed on</span>"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid "<span>Purchases</span>:"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_lpp_stability_wizard__show_history
+msgid "Add the line-by-line price history sheet to the Excel export."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_res_company__lpp_tracking_enabled
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_res_config_settings__lpp_tracking_enabled
+msgid "Advanced Last Purchase Price"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__lpp_stability_wizard__stability__all
+msgid "All"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__lpp_stability_wizard__direction__all
+msgid "All Trends"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_stability_wizard_view_form
+msgid "All categories"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_stability_wizard_view_form
+msgid "All products"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_stability_wizard_view_form
+msgid "All vendors"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#, python-format
+msgid "Amount"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__res_company__lpp_lookup_scope__any
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__res_config_settings__lpp_lookup_scope__any
+msgid "Any Vendor"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__abs_variance_pct
+msgid "Avg Fluctuation (%)"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Avg Price"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Avg Stability Score"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__unit_price
+msgid "Avg Unit Price"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_lpp_stability_wizard__stability
+msgid "Based on the coefficient of variation of the unit price and the thresholds set in Purchase Settings."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__user_id
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+msgid "Buyer"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid "CV"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "CV %"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_stability_wizard_view_form
+msgid "Cancel"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#, python-format
+msgid "Categories"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Change"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Change %"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.res_config_settings_view_form_lpp
+msgid "Coefficient of variation thresholds used to classify vendor prices as stable, moderate or volatile"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_stability_wizard__company_ids
+msgid "Companies"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__company_id
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+#, python-format
+msgid "Company"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__currency_id
+#, python-format
+msgid "Currency"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__currency_rate
+#, python-format
+msgid "Currency Rate"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#, python-format
+msgid "Date"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_stability_wizard__excel_file
+msgid "Excel File"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_stability_wizard__excel_filename
+msgid "Excel File Name"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_stability_wizard_view_form
+msgid "Export Excel"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__lpp_stability_wizard__direction__down
+#, python-format
+msgid "Falling"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Falling Prices"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "First Date"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "First Price"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__lpp_vendor_price_report__trend__first
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+msgid "First Purchase"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__lpp_stability_wizard__direction__flat
+#, python-format
+msgid "Flat"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+msgid "Fluctuation above 10%"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+msgid "Fluctuation above 5%"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_stability_wizard__date_from
+msgid "From"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+msgid "Group By"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_form_lpp
+msgid "Hist. Rate"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_purchase_order_line__lpp_last_currency_rate
+msgid "Historical Currency Rate"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_lpp_stability_wizard__min_purchases
+msgid "Ignore vendor/product pairs bought fewer times than this in the period."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_stability_wizard__show_history
+msgid "Include Price History"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_form_lpp
+msgid "Last Currency"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Last Date"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_form_lpp
+msgid "Last PO"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_purchase_order_line__lpp_last_price
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_form_lpp
+#, python-format
+msgid "Last Price"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_purchase_order_line__lpp_last_price_original
+msgid "Last Price (Original)"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_purchase_order_line__lpp_last_currency_id
+msgid "Last Price Currency"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_res_company__lpp_lookup_scope
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_res_config_settings__lpp_lookup_scope
+msgid "Last Price Source"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_purchase_order__lpp_tracking_enabled
+msgid "Last Price Tracking"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_purchase_order_line__lpp_enabled
+msgid "Last Price Tracking Enabled"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_purchase_order_line__lpp_last_uom_id
+msgid "Last Price UoM"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_form_lpp
+msgid "Last Purchase"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_purchase_order_line__lpp_last_date
+msgid "Last Purchase Date"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_purchase_order_line__lpp_last_line_id
+msgid "Last Purchase Line"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_purchase_order_line__lpp_last_order_id
+msgid "Last Purchase Order"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_form_lpp
+msgid "Last UoM"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_purchase_order_line__lpp_last_partner_id
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_line_compare_tree_lpp
+msgid "Last Vendor"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_purchase_order_line__lpp_last_price
+msgid "Last confirmed purchase price, converted to the unit of measure and the currency of this line."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Max Price"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__max_price
+msgid "Max Unit Price"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Min Price"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__min_price
+msgid "Min Unit Price"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_stability_wizard__min_purchases
+#, python-format
+msgid "Minimum Purchases"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__lpp_stability_wizard__stability__moderate
+#, python-format
+msgid "Moderate"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_res_company__lpp_neutral_band
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_res_config_settings__lpp_neutral_band
+msgid "Neutral Variance Band (%)"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__purchase_order_line__lpp_price_signal__new
+msgid "No History"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.actions.act_window,help:last_purchase_price_advanced.action_lpp_vendor_price_report
+msgid "No confirmed purchases to analyze yet"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "No purchases match the selected filters."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_stability_wizard_view_form
+msgid "Open Analysis"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.res_config_settings_view_form_lpp
+msgid "Open Vendor Price Stability"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__order_currency_id
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+#, python-format
+msgid "Order Currency"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__order_line_id
+msgid "Order Line"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__order_price_unit
+#, python-format
+msgid "Order Unit Price"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_stability_wizard_view_form
+#, python-format
+msgid "Period"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#, python-format
+msgid "Previous Price"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__previous_price
+msgid "Previous Unit Price"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_stability_wizard_view_form
+msgid "Price Behaviour"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__price_change
+msgid "Price Change"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__lpp_vendor_price_report__trend__down
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__purchase_order_line__lpp_price_signal__down
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+msgid "Price Down"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#, python-format
+msgid "Price History"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.res_config_settings_view_form_lpp
+msgid "Price Intelligence"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_purchase_order_line__lpp_price_signal
+msgid "Price Signal"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/models/product_template.py:0
+#: code:addons/last_purchase_price_advanced/models/purchase_order_line.py:0
+#, python-format
+msgid "Price Stability: %s"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_stability_wizard__direction
+#, python-format
+msgid "Price Trend"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__lpp_vendor_price_report__trend__up
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__purchase_order_line__lpp_price_signal__up
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+msgid "Price Up"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/models/res_company.py:0
+#, python-format
+msgid "Price intelligence thresholds cannot be negative."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid "Prices are normalized to the product unit of measure and converted to the company currency with the rate recorded on each order."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_stability_wizard_view_form
+msgid "Print PDF"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#, python-format
+msgid "Printed on"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__product_id
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+#, python-format
+msgid "Product"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_stability_wizard__categ_ids
+msgid "Product Categories"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__categ_id
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+msgid "Product Category"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__product_tmpl_id
+msgid "Product Template"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_stability_wizard__product_ids
+#, python-format
+msgid "Products"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__date
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+msgid "Purchase Date"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__order_id
+#, python-format
+msgid "Purchase Order"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__amount
+msgid "Purchased Amount"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Purchases"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Purchases Analyzed"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__qty
+#, python-format
+msgid "Quantity"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_purchase_order_line__lpp_last_currency_rate
+msgid "Rate between the company currency and the currency of the last purchase, as applied on that order."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_purchase_order_line__lpp_price_variance
+msgid "Relative difference between the unit price of this line and the normalized last purchase price."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__lpp_stability_wizard__direction__up
+#, python-format
+msgid "Rising"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_lpp_stability_wizard__direction
+msgid "Rising / Falling: last price of the period above / below the first one by more than the neutral band."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Rising Prices"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__res_company__lpp_lookup_scope__vendor
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__res_config_settings__lpp_lookup_scope__vendor
+msgid "Same Vendor"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_res_company__lpp_lookup_scope
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_res_config_settings__lpp_lookup_scope
+msgid ""
+"Same Vendor: compare with the last price paid to the vendor of the order.\n"
+"Any Vendor: compare with the last price paid to any vendor for the product."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_stability_wizard_view_form
+msgid "Scope"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Score"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_res_company__lpp_tracking_enabled
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_res_config_settings__lpp_tracking_enabled
+msgid "Show the last confirmed purchase price, its variance and a price signal on every purchase order line."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.res_config_settings_view_form_lpp
+msgid "Show the last confirmed purchase price, its variance and a price signal on purchase order lines"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_line_compare_tree_lpp
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_form_lpp
+msgid "Signal"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#, python-format
+msgid "Spread %"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_stability_wizard__stability
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Stability"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#, python-format
+msgid "Stability Summary"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__lpp_vendor_price_report__trend__stable
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__lpp_stability_wizard__stability__stable
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+#, python-format
+msgid "Stable"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_res_company__lpp_stable_cv
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_res_config_settings__lpp_stable_cv
+msgid "Stable Threshold (CV %)"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#, python-format
+msgid "Std Dev"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#, python-format
+msgid "The Python library xlsxwriter is required for the Excel export."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#, python-format
+msgid "The minimum number of purchases must be at least 1."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#, python-format
+msgid "The start date must be earlier than the end date."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/models/res_company.py:0
+#, python-format
+msgid "The volatile threshold must be greater than or equal to the stable threshold."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_stability_wizard__date_to
+msgid "To"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_tree
+msgid "Total"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.actions.act_window,help:last_purchase_price_advanced.action_lpp_vendor_price_report
+msgid ""
+"Track how stable the prices of your vendors are: average, minimum and maximum\n"
+"                unit price, fluctuation and trend for every vendor and product, normalized to\n"
+"                the product unit of measure and the company currency."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__trend
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+#, python-format
+msgid "Trend"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__purchase_order_line__lpp_price_signal__same
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_form_lpp
+msgid "Unchanged"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_tree
+#, python-format
+msgid "Unit Price"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__uom_id
+msgid "Unit of Measure"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_purchase_order_line__lpp_last_price_original
+msgid "Unit price as recorded on the last confirmed purchase, in its own currency and unit of measure."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#, python-format
+msgid "UoM"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_line_compare_tree_lpp
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_form_lpp
+msgid "Var. %"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__variance_pct
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_purchase_order_line__lpp_price_variance
+#, python-format
+msgid "Variance (%)"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_res_company__lpp_neutral_band
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_res_config_settings__lpp_neutral_band
+msgid "Variations whose absolute value does not exceed this percentage are flagged as unchanged."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_vendor_price_report__partner_id
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+#, python-format
+msgid "Vendor"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_tree
+msgid "Vendor Price History"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.actions.report,name:last_purchase_price_advanced.action_report_lpp_vendor_price_stability
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_pivot
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_graph
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_vendor_price_report_view_search
+#: model:ir.actions.act_window,name:last_purchase_price_advanced.action_lpp_vendor_price_report
+#: model:ir.ui.menu,name:last_purchase_price_advanced.menu_lpp_vendor_price_stability
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.purchase_order_form_lpp
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.lpp_stability_wizard_view_form
+#, python-format
+msgid "Vendor Price Stability"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.ui.menu,name:last_purchase_price_advanced.menu_lpp_vendor_price_stability_print
+msgid "Vendor Price Stability (PDF / Excel)"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model,name:last_purchase_price_advanced.model_lpp_vendor_price_report
+msgid "Vendor Price Stability Analysis"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model,name:last_purchase_price_advanced.model_report_last_purchase_price_advanced_report_vendor_stability
+msgid "Vendor Price Stability PDF Report"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.actions.act_window,name:last_purchase_price_advanced.action_lpp_stability_wizard
+msgid "Vendor Price Stability Report"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model,name:last_purchase_price_advanced.model_lpp_stability_wizard
+msgid "Vendor Price Stability Report Wizard"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Vendor/Product Pairs"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_res_company__lpp_stable_cv
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_res_config_settings__lpp_stable_cv
+msgid "Vendor/product pairs whose coefficient of variation does not exceed this value are classified as Stable."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_res_company__lpp_volatile_cv
+#: model:ir.model.fields,help:last_purchase_price_advanced.field_res_config_settings__lpp_volatile_cv
+msgid "Vendor/product pairs whose coefficient of variation exceeds this value are classified as Volatile."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_lpp_stability_wizard__partner_ids
+#, python-format
+msgid "Vendors"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model:ir.model.fields.selection,name:last_purchase_price_advanced.selection__lpp_stability_wizard__stability__volatile
+#, python-format
+msgid "Volatile"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#. odoo-python
+#: code:addons/last_purchase_price_advanced/wizard/lpp_stability_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+#, python-format
+msgid "Volatile Pairs"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_res_company__lpp_volatile_cv
+#: model:ir.model.fields,field_description:last_purchase_price_advanced.field_res_config_settings__lpp_volatile_cv
+msgid "Volatile Threshold (CV %)"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid "coefficient of variation of the unit price (standard deviation / average)."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid "last price of the period compared with the first one."
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid "▬"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid "▲"
+msgstr ""
+
+#. module: last_purchase_price_advanced
+#: model_terms:ir.ui.view,arch_db:last_purchase_price_advanced.report_vendor_stability
+msgid "▼"
+msgstr ""

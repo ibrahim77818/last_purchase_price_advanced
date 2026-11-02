@@ -1,0 +1,29 @@
+// Last Purchase Price Advanced - backend signals.
+// Uses logical properties only, so the RTL bundle (rtlcss) needs no overrides.
+
+.o_lpp_signal {
+    display: inline-flex;
+    align-items: center;
+    margin-inline-start: 0.5rem;
+
+    .o_lpp_badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        font-variant-numeric: tabular-nums;
+
+        .o_field_widget,
+        .o_field_float {
+            width: auto;
+            color: inherit;
+        }
+    }
+}
+
+// Badge widget in lists: keep percentages aligned whatever the direction.
+.o_list_renderer {
+    td[name="lpp_price_variance"],
+    td[name="lpp_last_price"] {
+        font-variant-numeric: tabular-nums;
+    }
+}

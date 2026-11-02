@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Purchase order form: intelligence columns on the order lines -->
+    <record id="purchase_order_form_lpp" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit.last.purchase.price.advanced</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet" position="inside">
+                <field name="lpp_tracking_enabled" invisible="1"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="before">
+                <field name="lpp_enabled" invisible="1"/>
+                <field name="lpp_last_price"
+                       string="Last Price"
+                       attrs="{'column_invisible': [('parent.lpp_tracking_enabled', '=', False)],
+                               'invisible': [('lpp_price_signal', 'in', (False, 'new'))]}"
+                       optional="show"/>
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="after">
+                <field name="lpp_price_variance"
+                       string="Var. %"
+                       attrs="{'column_invisible': [('parent.lpp_tracking_enabled', '=', False)],
+                               'invisible': [('lpp_price_signal', 'in', (False, 'new'))]}"
+                       decoration-danger="lpp_price_signal == 'up'"
+                       decoration-success="lpp_price_signal == 'down'"
+                       decoration-muted="lpp_price_signal == 'same'"
+                       optional="show"/>
+                <field name="lpp_price_signal"
+                       string="Signal"
+                       widget="badge"
+                       attrs="{'column_invisible': [('parent.lpp_tracking_enabled', '=', False)]}"
+                       decoration-danger="lpp_price_signal == 'up'"
+                       decoration-success="lpp_price_signal == 'down'"
+                       decoration-info="lpp_price_signal == 'same'"
+                       decoration-muted="lpp_price_signal == 'new'"
+                       optional="show"/>
+                <field name="lpp_last_uom_id"
+                       string="Last UoM"
+                       groups="uom.group_uom"
+                       attrs="{'column_invisible': [('parent.lpp_tracking_enabled', '=', False)]}"
+                       options="{'no_open': True}"
+                       optional="hide"/>
+                <field name="lpp_last_currency_id"
+                       string="Last Currency"
+                       groups="base.group_multi_currency"
+                       attrs="{'column_invisible': [('parent.lpp_tracking_enabled', '=', False)]}"
+                       options="{'no_open': True}"
+                       optional="hide"/>
+                <field name="lpp_last_currency_rate"
+                       string="Hist. Rate"
+                       groups="base.group_multi_currency"
+                       attrs="{'column_invisible': [('parent.lpp_tracking_enabled', '=', False)]}"
+                       optional="hide"/>
+                <field name="lpp_last_order_id"
+                       string="Last PO"
+                       attrs="{'column_invisible': [('parent.lpp_tracking_enabled', '=', False)]}"
+                       optional="hide"/>
+                <field name="lpp_last_date"
+                       string="Last Purchase"
+                       widget="date"
+                       attrs="{'column_invisible': [('parent.lpp_tracking_enabled', '=', False)]}"
+                       optional="hide"/>
+                <button name="action_lpp_price_stability" type="object"
+                        icon="fa-line-chart" title="Vendor Price Stability"
+                        attrs="{'column_invisible': [('parent.lpp_tracking_enabled', '=', False)],
+                                'invisible': ['|', ('id', '=', False), ('product_id', '=', False)]}"/>
+            </xpath>
+
+            <!-- Line form (used on small screens / kanban) -->
+            <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="after">
+                <field name="lpp_enabled" invisible="1"/>
+                <field name="lpp_price_signal" invisible="1"/>
+                <label for="lpp_last_price" attrs="{'invisible': ['|', ('lpp_enabled', '=', False), ('lpp_price_signal', 'in', (False, 'new'))]}"/>
+                <div class="o_row" attrs="{'invisible': ['|', ('lpp_enabled', '=', False), ('lpp_price_signal', 'in', (False, 'new'))]}">
+                    <field name="lpp_last_price"/>
+                    <div class="o_lpp_signal" attrs="{'invisible': [('lpp_price_signal', '!=', 'up')]}">
+                        <div class="badge rounded-pill text-bg-danger o_lpp_badge">
+                            <i class="fa fa-caret-up" role="img" aria-label="Price Up" title="Price Up"/>
+                            <field name="lpp_price_variance" nolabel="1" class="oe_inline"/>
+                        </div>
+                    </div>
+                    <div class="o_lpp_signal" attrs="{'invisible': [('lpp_price_signal', '!=', 'down')]}">
+                        <div class="badge rounded-pill text-bg-success o_lpp_badge">
+                            <i class="fa fa-caret-down" role="img" aria-label="Price Down" title="Price Down"/>
+                            <field name="lpp_price_variance" nolabel="1" class="oe_inline"/>
+                        </div>
+                    </div>
+                    <div class="o_lpp_signal" attrs="{'invisible': [('lpp_price_signal', '!=', 'same')]}">
+                        <div class="badge rounded-pill text-bg-info o_lpp_badge">Unchanged</div>
+                    </div>
+                </div>
+                <field name="lpp_last_order_id" attrs="{'invisible': ['|', ('lpp_enabled', '=', False), ('lpp_last_order_id', '=', False)]}"/>
+                <field name="lpp_last_partner_id" attrs="{'invisible': ['|', ('lpp_enabled', '=', False), ('lpp_last_partner_id', '=', False)]}"/>
+                <field name="lpp_last_date" attrs="{'invisible': ['|', ('lpp_enabled', '=', False), ('lpp_last_date', '=', False)]}"/>
+                <label for="lpp_last_price_original" groups="base.group_multi_currency,uom.group_uom"
+                       attrs="{'invisible': ['|', ('lpp_enabled', '=', False), ('lpp_last_order_id', '=', False)]}"/>
+                <div class="o_row" groups="base.group_multi_currency,uom.group_uom"
+                     attrs="{'invisible': ['|', ('lpp_enabled', '=', False), ('lpp_last_order_id', '=', False)]}">
+                    <field name="lpp_last_price_original"/>
+                    <field name="lpp_last_currency_id" options="{'no_open': True}"/>
+                    <field name="lpp_last_uom_id" options="{'no_open': True}"/>
+                    <field name="lpp_last_currency_rate"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Purchase order lines analysis list (Purchase > Orders > lines) -->
+    <record id="purchase_order_line_tree_lpp" model="ir.ui.view">
+        <field name="name">purchase.order.line.tree.inherit.last.purchase.price.advanced</field>
+        <field name="model">purchase.order.line</field>
+        <field name="inherit_id" ref="purchase.purchase_order_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='price_unit']" position="after">
+                <field name="lpp_enabled" invisible="1"/>
+                <field name="lpp_last_price" optional="hide"
+                       attrs="{'invisible': ['|', ('lpp_enabled', '=', False), ('lpp_price_signal', 'in', (False, 'new'))]}"/>
+                <field name="lpp_price_variance" optional="hide"
+                       attrs="{'invisible': ['|', ('lpp_enabled', '=', False), ('lpp_price_signal', 'in', (False, 'new'))]}"
+                       decoration-danger="lpp_price_signal == 'up'"
+                       decoration-success="lpp_price_signal == 'down'"/>
+                <field name="lpp_price_signal" widget="badge" optional="hide"
+                       attrs="{'invisible': [('lpp_enabled', '=', False)]}"
+                       decoration-danger="lpp_price_signal == 'up'"
+                       decoration-success="lpp_price_signal == 'down'"
+                       decoration-info="lpp_price_signal == 'same'"
+                       decoration-muted="lpp_price_signal == 'new'"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

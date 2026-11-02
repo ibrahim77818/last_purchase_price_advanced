@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_lpp_vendor_price_stability"
+              name="Vendor Price Stability"
+              parent="purchase.purchase_report_main"
+              action="action_lpp_vendor_price_report"
+              groups="purchase.group_purchase_manager"
+              sequence="100"/>
+
+    <menuitem id="menu_lpp_vendor_price_stability_print"
+              name="Vendor Price Stability (PDF / Excel)"
+              parent="purchase.purchase_report_main"
+              action="action_lpp_stability_wizard"
+              groups="purchase.group_purchase_manager"
+              sequence="101"/>
+
+</odoo>

@@ -1,0 +1,147 @@
+// Vendor Price Stability PDF.
+// wkhtmltopdf runs an old WebKit: no flexbox/grid, no logical properties,
+// so the layout uses tables and the rules below are written for LTR only.
+// For right-to-left languages (Arabic) Odoo serves the RTL build of the
+// report bundle (rtlcss), which mirrors every left/right rule here; the
+// report body also carries dir="rtl". Do NOT add [dir=rtl] overrides: they
+// would be mirrored a second time.
+
+$lpp-ink: #1f2933;
+$lpp-navy: #1f3a5f;
+$lpp-muted: #5b6770;
+$lpp-line: #dde3ea;
+$lpp-soft: #f4f6f9;
+$lpp-up: #b42318;
+$lpp-up-bg: #fdecea;
+$lpp-down: #067647;
+$lpp-down-bg: #e7f6ec;
+$lpp-flat: #475467;
+$lpp-flat-bg: #f2f4f7;
+$lpp-warn: #b54708;
+$lpp-warn-bg: #fef0c7;
+
+.lpp_report {
+    color: $lpp-ink;
+    font-size: 10.5px;
+
+    .lpp_title_block { margin-bottom: 10px; }
+    .lpp_title {
+        color: $lpp-navy;
+        font-weight: 700;
+        margin: 0 0 2px 0;
+    }
+    .lpp_muted { color: $lpp-muted; font-size: 0.92em; }
+    .lpp_sep { color: $lpp-line; padding: 0 6px; }
+
+    .lpp_filters { margin-top: 6px; }
+    .lpp_chip {
+        display: inline-block;
+        background: $lpp-soft;
+        border: 1px solid $lpp-line;
+        border-radius: 10px;
+        padding: 1px 8px;
+        margin: 2px 4px 2px 0;
+    }
+
+    .lpp_kpis {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 6px 0;
+        margin: 6px 0 14px 0;
+        td {
+            width: 16.66%;
+            background: $lpp-soft;
+            border: 1px solid $lpp-line;
+            border-top: 3px solid $lpp-navy;
+            padding: 6px 4px;
+            text-align: center;
+        }
+        td.lpp_kpi_up { border-top-color: $lpp-up; }
+        td.lpp_kpi_down { border-top-color: $lpp-down; }
+        .lpp_kpi_value { font-size: 17px; font-weight: 700; color: $lpp-navy; }
+        .lpp_kpi_label { font-size: 9px; color: $lpp-muted; text-transform: uppercase; letter-spacing: 0.3px; }
+    }
+
+    .lpp_vendor_block { page-break-inside: auto; margin-bottom: 12px; }
+    .lpp_vendor_head {
+        width: 100%;
+        background: $lpp-navy;
+        color: #fff;
+        td { padding: 4px 8px; }
+        .lpp_vendor_name { font-weight: 700; font-size: 11.5px; text-align: left; }
+        .lpp_vendor_meta { text-align: right; font-size: 9.5px; }
+        .lpp_muted { color: #d3dbe4; }
+        .lpp_sep { color: #7d93ad; }
+    }
+
+    .lpp_table {
+        width: 100%;
+        margin-bottom: 0;
+        thead th {
+            background: $lpp-soft;
+            color: $lpp-navy;
+            font-size: 9px;
+            text-transform: uppercase;
+            border-bottom: 1px solid $lpp-navy;
+            text-align: center;
+            vertical-align: middle;
+        }
+        td { border-top: 1px solid $lpp-line; vertical-align: middle; }
+        tr { page-break-inside: avoid; }
+        .lpp_start { text-align: left; }
+        .lpp_num { text-align: right; white-space: nowrap; }
+        .lpp_center { text-align: center; white-space: nowrap; }
+    }
+
+    .lpp_txt_up { color: $lpp-up; font-weight: 700; }
+    .lpp_txt_down { color: $lpp-down; font-weight: 700; }
+
+    .lpp_badge {
+        display: inline-block;
+        padding: 1px 7px;
+        border-radius: 9px;
+        font-size: 9px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+    .lpp_badge_up, .lpp_badge_volatile { background: $lpp-up-bg; color: $lpp-up; }
+    .lpp_badge_down, .lpp_badge_stable { background: $lpp-down-bg; color: $lpp-down; }
+    .lpp_badge_flat { background: $lpp-flat-bg; color: $lpp-flat; }
+    .lpp_badge_moderate { background: $lpp-warn-bg; color: $lpp-warn; }
+
+    .lpp_score_bar {
+        display: inline-block;
+        width: 38px;
+        height: 6px;
+        background: $lpp-flat-bg;
+        border-radius: 3px;
+        vertical-align: middle;
+        margin-right: 4px;
+        overflow: hidden;
+        text-align: left;
+    }
+    .lpp_score_fill { height: 6px; border-radius: 3px; }
+    .lpp_score_fill.lpp_badge_stable { background: $lpp-down; }
+    .lpp_score_fill.lpp_badge_moderate { background: $lpp-warn; }
+    .lpp_score_fill.lpp_badge_volatile { background: $lpp-up; }
+
+    .lpp_empty {
+        padding: 18px;
+        text-align: center;
+        color: $lpp-muted;
+        border: 1px dashed $lpp-line;
+    }
+
+    .lpp_legend {
+        margin-top: 10px;
+        padding-top: 6px;
+        border-top: 1px solid $lpp-line;
+        color: $lpp-muted;
+        font-size: 8.5px;
+        .lpp_legend_table {
+            border-collapse: collapse;
+            td { padding: 1px 10px 1px 0; vertical-align: top; text-align: left; }
+            td.lpp_legend_key { color: $lpp-ink; font-weight: 700; white-space: nowrap; }
+        }
+    }
+}

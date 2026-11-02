@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="lpp_stability_wizard_view_form" model="ir.ui.view">
+        <field name="name">lpp.stability.wizard.form</field>
+        <field name="model">lpp.stability.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Vendor Price Stability">
+                <field name="excel_file" invisible="1"/>
+                <field name="excel_filename" invisible="1"/>
+                <group>
+                    <group string="Period">
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                    </group>
+                    <group string="Price Behaviour">
+                        <field name="direction" widget="radio" options="{'horizontal': true}"/>
+                        <field name="stability" widget="radio" options="{'horizontal': true}"/>
+                        <field name="min_purchases"/>
+                    </group>
+                </group>
+                <group string="Scope">
+                    <field name="partner_ids" widget="many2many_tags" options="{'no_create': True}"
+                           placeholder="All vendors"/>
+                    <field name="product_ids" widget="many2many_tags" options="{'no_create': True}"
+                           placeholder="All products"/>
+                    <field name="categ_ids" widget="many2many_tags" options="{'no_create': True}"
+                           placeholder="All categories"/>
+                    <field name="company_ids" widget="many2many_tags" options="{'no_create': True}"
+                           groups="base.group_multi_company"/>
+                    <field name="show_history"/>
+                </group>
+                <footer>
+                    <button name="action_print_pdf" type="object" string="Print PDF"
+                            icon="fa-file-pdf-o" class="btn-primary" data-hotkey="q"/>
+                    <button name="action_export_xlsx" type="object" string="Export Excel"
+                            icon="fa-file-excel-o" class="btn-primary" data-hotkey="w"/>
+                    <button name="action_open_analysis" type="object" string="Open Analysis"
+                            icon="fa-bar-chart" class="btn-secondary" data-hotkey="e"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_lpp_stability_wizard" model="ir.actions.act_window">
+        <field name="name">Vendor Price Stability Report</field>
+        <field name="res_model">lpp.stability.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

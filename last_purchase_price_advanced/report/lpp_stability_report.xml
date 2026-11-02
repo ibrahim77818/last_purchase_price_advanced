@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="paperformat_lpp_landscape" model="report.paperformat">
+        <field name="name">Vendor Price Stability (A4 Landscape)</field>
+        <field name="default" eval="False"/>
+        <field name="format">A4</field>
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">32</field>
+        <field name="margin_bottom">20</field>
+        <field name="margin_left">8</field>
+        <field name="margin_right">8</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">26</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_report_lpp_vendor_price_stability" model="ir.actions.report">
+        <field name="name">Vendor Price Stability</field>
+        <field name="model">lpp.stability.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">last_purchase_price_advanced.report_vendor_stability</field>
+        <field name="report_file">last_purchase_price_advanced.report_vendor_stability</field>
+        <field name="print_report_name">'Vendor Price Stability'</field>
+        <field name="paperformat_id" ref="paperformat_lpp_landscape"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_vendor_stability">
+        <t t-call="web.html_container">
+            <t t-foreach="reports" t-as="rep">
+                <t t-set="o" t-value="rep['wizard']"/>
+                <t t-call="web.external_layout">
+                    <div class="page lpp_report" t-att-dir="'rtl' if is_rtl else 'ltr'">
+
+                        <div class="lpp_title_block">
+                            <h2 class="lpp_title">Vendor Price Stability</h2>
+                            <div class="lpp_muted">
+                                <span>Printed on</span>
+                                <span t-out="printed_on" t-options="{'widget': 'datetime'}"/>
+                            </div>
+                            <div class="lpp_filters" t-if="rep['filters']">
+                                <t t-foreach="rep['filters']" t-as="flt">
+                                    <span class="lpp_chip">
+                                        <strong t-out="flt[0]"/>:
+                                        <span t-out="flt[1]"/>
+                                    </span>
+                                </t>
+                            </div>
+                        </div>
+
+                        <table class="lpp_kpis">
+                            <tr>
+                                <td>
+                                    <div class="lpp_kpi_value" t-out="rep['summary']['pairs']"/>
+                                    <div class="lpp_kpi_label">Vendor/Product Pairs</div>
+                                </td>
+                                <td>
+                                    <div class="lpp_kpi_value" t-out="rep['summary']['purchases']"/>
+                                    <div class="lpp_kpi_label">Purchases Analyzed</div>
+                                </td>
+                                <td class="lpp_kpi_up">
+                                    <div class="lpp_kpi_value" t-out="rep['summary']['rising']"/>
+                                    <div class="lpp_kpi_label">Rising Prices</div>
+                                </td>
+                                <td class="lpp_kpi_down">
+                                    <div class="lpp_kpi_value" t-out="rep['summary']['falling']"/>
+                                    <div class="lpp_kpi_label">Falling Prices</div>
+                                </td>
+                                <td class="lpp_kpi_up">
+                                    <div class="lpp_kpi_value" t-out="rep['summary']['volatile']"/>
+                                    <div class="lpp_kpi_label">Volatile Pairs</div>
+                                </td>
+                                <td>
+                                    <div class="lpp_kpi_value" t-out="rep['summary']['avg_score']"/>
+                                    <div class="lpp_kpi_label">Avg Stability Score</div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <p t-if="not rep['groups']" class="lpp_empty">
+                            No purchases match the selected filters.
+                        </p>
+
+                        <t t-foreach="rep['groups']" t-as="grp">
+                            <div class="lpp_vendor_block">
+                                <table class="lpp_vendor_head">
+                                    <tr>
+                                        <td class="lpp_vendor_name">
+                                            <bdi t-out="grp['partner'].display_name"/>
+                                            <span class="lpp_muted" t-if="len(docs.env.companies) &gt; 1">
+                                                (<span t-out="grp['company'].name"/>)
+                                            </span>
+                                        </td>
+                                        <td class="lpp_vendor_meta">
+                                            <span>Purchases</span>: <span t-out="grp['nbr']"/>
+                                            <span class="lpp_sep">|</span>
+                                            <span>Amount</span>:
+                                            <span t-out="grp['amount']" t-options="{'widget': 'monetary', 'display_currency': grp['currency']}"/>
+                                            <span class="lpp_sep">|</span>
+                                            <span>Score</span>: <span t-out="grp['avg_score']"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table class="table table-sm lpp_table">
+                                    <thead>
+                                        <tr>
+                                            <th class="lpp_start">Product</th>
+                                            <th>Purchases</th>
+                                            <th>First Date</th>
+                                            <th>Last Date</th>
+                                            <th class="lpp_num">First Price</th>
+                                            <th class="lpp_num">Last Price</th>
+                                            <th class="lpp_num">Min Price</th>
+                                            <th class="lpp_num">Max Price</th>
+                                            <th class="lpp_num">Avg Price</th>
+                                            <th class="lpp_num">CV %</th>
+                                            <th class="lpp_num">Change %</th>
+                                            <th>Trend</th>
+                                            <th>Stability</th>
+                                            <th class="lpp_num">Score</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr t-foreach="grp['rows']" t-as="r">
+                                            <td class="lpp_start">
+                                                <bdi t-out="r['product'].display_name"/>
+                                                <span class="lpp_muted">/ <bdi t-out="r['uom'].name"/></span>
+                                            </td>
+                                            <td class="lpp_center" t-out="r['nbr']"/>
+                                            <td class="lpp_center"><span t-out="r['first_date']" t-options="{'widget': 'date'}"/></td>
+                                            <td class="lpp_center"><span t-out="r['last_date']" t-options="{'widget': 'date'}"/></td>
+                                            <td class="lpp_num"><span t-out="r['first_price']" t-options="{'widget': 'float', 'precision': price_digits}"/></td>
+                                            <td class="lpp_num"><span t-out="r['last_price']" t-options="{'widget': 'float', 'precision': price_digits}"/></td>
+                                            <td class="lpp_num"><span t-out="r['min_price']" t-options="{'widget': 'float', 'precision': price_digits}"/></td>
+                                            <td class="lpp_num"><span t-out="r['max_price']" t-options="{'widget': 'float', 'precision': price_digits}"/></td>
+                                            <td class="lpp_num"><span t-out="r['avg_price']" t-options="{'widget': 'float', 'precision': price_digits}"/></td>
+                                            <td class="lpp_num"><span t-out="r['cv']" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                            <td t-attf-class="lpp_num #{'lpp_txt_up' if r['change_pct'] &gt; 0 else ('lpp_txt_down' if r['change_pct'] &lt; 0 else '')}">
+                                                <span t-out="r['change_pct']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                            </td>
+                                            <td class="lpp_center">
+                                                <span t-attf-class="lpp_badge lpp_badge_#{r['direction']}">
+                                                    <t t-if="r['direction'] == 'up'">&#9650;</t>
+                                                    <t t-elif="r['direction'] == 'down'">&#9660;</t>
+                                                    <t t-else="">&#9644;</t>
+                                                    <span t-out="rep['labels']['direction'][r['direction']]"/>
+                                                </span>
+                                            </td>
+                                            <td class="lpp_center">
+                                                <span t-attf-class="lpp_badge lpp_badge_#{r['stability']}"
+                                                      t-out="rep['labels']['stability'][r['stability']]"/>
+                                            </td>
+                                            <td class="lpp_num">
+                                                <div class="lpp_score_bar">
+                                                    <div t-attf-class="lpp_score_fill lpp_badge_#{r['stability']}"
+                                                         t-attf-style="width: #{int(r['score'])}%;"/>
+                                                </div>
+                                                <span t-out="r['score']"/>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </t>
+
+                        <div class="lpp_legend">
+                            <table class="lpp_legend_table">
+                                <tr><td class="lpp_legend_key">CV</td><td>coefficient of variation of the unit price (standard deviation / average).</td></tr>
+                                <tr><td class="lpp_legend_key">Change</td><td>last price of the period compared with the first one.</td></tr>
+                                <tr><td class="lpp_legend_key">Score</td><td>100 = no fluctuation, 50 = at the volatile threshold, 0 = twice the volatile threshold.</td></tr>
+                                <tr><td colspan="2">Prices are normalized to the product unit of measure and converted to the company currency with the rate recorded on each order.</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
